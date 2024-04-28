@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Jeu Devine le Nombre</title>
+</head>
+<body>
+<h1>Jeu Devine le Nombre</h1>
+<p>Je pense à un nombre entre 1 et 10. Essaye de le deviner !</p>
+<input type="number" id="guessInput" placeholder="Entrez un nombre ici">
+<button onclick="checkGuess()">Essayer</button>
+<p id="result"></p>
+
+<script>
+function checkGuess() {
+    var secretNumber = Math.floor(Math.random() * 10) + 1; // Génère un nombre entre 1 et 10
+    var userInput = document.getElementById('guessInput').value; // Récupère la valeur entrée par l'utilisateur
+    var resultText;
+    
+    if (parseInt(userInput) === secretNumber) {
+        resultText = "Félicitations! Vous avez trouvé le nombre!";
+    } else if (parseInt(userInput) < secretNumber) {
+        resultText = "Trop bas! Essayez un nombre plus élevé.";
+    } else {
+        resultText = "Trop haut! Essayez un nombre plus bas.";
+    }
+    
+    document.getElementById('result').innerText = resultText; // Affiche le résultat
+}
+</script>
+</body>
+</html>
